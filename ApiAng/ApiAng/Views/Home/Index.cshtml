@@ -1,0 +1,35 @@
+﻿@*<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>*@
+
+<h2>Index</h2>
+<div ng-app="JobsApp">
+    <h1>Product List</h1>
+    <div ng-controller="JobController">
+        <table  border="1">
+            <tr ng-repeat="Job in Jobs">
+                <td>{{Job.job_Id}}</td>
+                <td>{{Job.job_desc}}</td>
+                <td>{{Job.min_lvl}}</td>
+                <td>{{Job.max_lvl}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<script>
+    var app = angular.module("JobsApp", []);
+    app.controller("JobController", function ($scope, $http) {
+        //   $http.get('/api/jobs')
+
+        $http({
+            url: "/api/jobs",
+            method: "GET"
+        }).success(function (data, status, headers, config) {
+            alert(data);
+            console.log(data);
+              $scope.Jobs = data;
+          }).
+          error(function (data, status, headers, config) {
+              alert("error " + data);
+          });
+    });
+</script>

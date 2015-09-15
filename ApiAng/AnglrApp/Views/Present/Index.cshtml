@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+@*<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>*@
+<script src="http://localhost:6517/Scripts/angular.min.js"></script>
+<h2>Index</h2>
+<div ng-app="JobsApp">
+    <h1>Jobs List</h1>
+    <div ng-controller="JobController">
+        <table class="table-responsive table-striped table-hover"  border="1">
+            <tr>
+                <th>Job Id</th>
+                <th>Description</th>
+                <th>Min Level</th>
+                <th>Max Level</th>
+            </tr>
+            <tr ng-repeat="Job in Jobs">
+                <td>{{Job.job_id}}</td>
+                <td>{{Job.job_desc}}</td>
+                <td>{{Job.min_lvl}}</td>
+                <td>{{Job.max_lvl}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<script>
+    var app = angular.module("JobsApp", []);
+    app.controller("JobController", function ($scope, $http) {
+        $http.get('http://localhost:6517/api/jobs').
+          success(function (data, status, headers, config) {
+              //console.log(data)
+              $scope.Jobs = data;
+          }).
+          error(function (data, status, headers, config) {
+              alert("error");
+          });
+    });
+</script>
