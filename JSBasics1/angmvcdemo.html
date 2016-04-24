@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="Scripts/angular.js"></script>
+    <script src="code.js"></script>
+</head>
+<body ng-app="app1" ng-controller="ctrl1">
+    <h2>Total Courses Available are
+    <label ng-bind="CourseList.length"></label>
+    </h2>
+    <h2>List of Courses</h2>
+    <p ng-repeat="course in CourseList">
+        {{course}}
+    </p>
+</body>
+</html>

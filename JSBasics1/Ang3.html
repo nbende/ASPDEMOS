@@ -1,0 +1,17 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="Scripts/angular.min.js"></script>
+</head>
+<body ng-app="">
+    <h2>Plaing with Videos</h2>
+    <input type="range" min="200" max="500" id="h1" ng-model="ht" />
+    <input type="range" min="200" max="500" id="w1" ng-model="wt" />
+    <br />
+    <hr />
+    <video id="v1" src="a.mp4" controls height="{{ht}}" width="{{wt}}">
+    </video>
+</body>
+</html>

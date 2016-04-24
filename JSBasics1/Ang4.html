@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="Scripts/angular.js"></script>
+</head>
+<body ng-app="">
+    <h2>Play Selected Video</h2>
+    <select id="s1" ng-model="vidname" ng-init="vidname='b.mp4'">
+        <option>a.mp4</option>
+        <option value="c.mp4">Movie3</option>
+        <option>b.mp4</option>
+        <option>Movie4</option>
+    </select>
+    <br /><br />
+    <div id="d1">{{vidname}}</div>
+    <video id="v1" src="{{vidname}}" height="400" width="400" controls></video>
+</body>
+</html>

@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="Scripts/jquery-2.2.3.js"></script>
+    <script>
+        $(function () {
+            var name = $("#t1");
+            var d1 = $("#d1");
+            name.keyup(function () {
+                d1.text("Hello " + name.val());
+            })
+        })
+    </script>
+</head>
+<body>
+    <h1>JS DOM</h1>
+    <input type="text" name="t1" id="t1" />
+    <h2>
+        <div id="d1" style="background-color:cyan"></div>
+    </h2><br />
+</body>
+</html>

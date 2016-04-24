@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="Scripts/angular.js"></script>
+</head>
+<body ng-app="">
+    <div ng-init="names=['Kiran','Smith','Scott','Test']">
+        <h3>Looping with ng-repeat directive</h3>
+        <ul>
+            <li ng-repeat="x in names">
+                {{ x }}
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

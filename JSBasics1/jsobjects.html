@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <h2>JS Objects - Different Ways</h2>
+    <script>
+        // method 1
+        var course = {};
+        course.Title = "AngularJS";
+        course.prereq = "Basics of Web";
+        course.duration = 30;
+        alert(course.Title);
+        //
+        // method 2
+        var product = { ProdId: 101, Title: "Laptop", Price: 20000 };
+        alert(product.Title);
+        // method 3
+        function Student(stno,stname,grade) {
+            this.StudentNo = stno;
+            this.StudentName = stname;
+            this.Grade = grade;
+        }
+        var x = new Student(101, "Kiran", "A");
+        alert(x.StudentName);
+    </script>
+</body>
+</html>
