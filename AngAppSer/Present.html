@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html ng-app="AppService">
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="Scripts/angular.js"></script>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <script src="Scripts/JobsMod/Main.js"></script>
+</head>
+<body>
+    <div ng-controller="Summary">
+        Total Jobs {{data.length}}
+    </div>
+    <div ng-controller="JobsController">
+        <tr ng-repeat="n in Jobs | orderBy:'-job_desc'">
+            <input type="text" name="search" ng-model="search.job_desc " />
+            <table class="table table-striped">
+                <tr ng-repeat="n in Jobs | filter:search | orderBy:'job_desc' | limitTo:-5">
+                    <td>{{n.job_id }}</td>
+                    <td>{{n.job_desc | ReverseData}}</td>
+                    <td>{{n.min_lvl | currency}}</td>
+                    <td>{{n.max_lvl}}</td>
+                </tr>
+            </table>
+</div>
+</body>
+</html>

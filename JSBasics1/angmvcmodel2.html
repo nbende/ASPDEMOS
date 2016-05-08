@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html ng-app="Main">
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <script src="Scripts/angular.js"></script>
+    <script src="App2.js"></script>
+</head>
+<body>
+    <h2>List of Departments</h2>
+    <div id="d1" ng-controller="DeptController">
+        Deptno : <input type="text" name="t1" ng-model="Deptno" />
+        Name : <input type="text" name="t2" ng-model="Dname"/>
+        Loc: <input type="text" name="t3" ng-model="Loc" />
+        <input type="button" name="b1" value="Add Dept" ng-click="Add()" />
+        <table class="table table-striped table-hover table-responsive">
+            <th>Deptno</th>
+            <th>Department</th>
+            <th>Location</th>
+            <tbody ng-repeat="dept in Depts">
+                <tr>
+                    <td>{{dept.Deptno}}</td>
+                    <td>{{dept.Dname | uppercase}}</td>
+                    <td>{{dept.Loc}}</td>
+                </tr>
+                <tr ng-show="{{dept.Loc}}">
+                    <td class="alert-success">
+                        Department Exists
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
