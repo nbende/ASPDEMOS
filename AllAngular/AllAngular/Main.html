@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="../Scripts/angular.js"></script>
+    <script src="../Scripts/angular-route.js"></script>
+    <script src="Scripts/app.js"></script>
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body ng-app="rtApp">
+    <div  class="container">
+        <div loadingbar>Please wait loading the data.............</div>
+        <h1>Jobs Operations</h1>
+        <a href="#addJobs">Add New Job</a>
+        <a href="#showJobs">Show Jobs</a>
+        <ng-view></ng-view>
+    </div>
+    
+</body>
+</html>

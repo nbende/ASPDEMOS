@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+
+    <h1>Add New Job</h1>
+    <div class="container">
+        <!--<form name="frmjobs"  novalidate>-->
+            <form name="frmjobs" novalidate ng-submit="job.AddJob()">
+                <div ng-show="frmjobs.$pristine">Form input has not yet started</div>
+                <div ng-show="frmjobs.$dirty">Form input has started</div>
+
+                <input type="text" name="job_id" id="job_id" class="form-control"
+                       placeholder="Job ID" ng-model="job.job_id" required />
+                <br />
+                <div>
+                    <input type="text" name="job_desc" id="job_desc" class="form-control"
+                           placeholder="Description" ng-model="job.job_desc" ng-minlength="3" ng-maxlength="8" required />
+                    <p style="color:red" ng-show="frmjobs.job_desc.$error.minlength" class="help-block">Description is too short.</p>
+                </div>
+                
+                <br />
+                <input type="text"  name="min_lvl" id="min_lvl" class="form-control" 
+                       placeholder="Minimum Level" ng-model="job.min_lvl" required />
+                <br />
+                <select id="s1" ng-model="job.ctry" class="form-control"
+                        ng-options="obj.value as obj.label for obj in job.country">
+                    <option value="">Select Country</option>
+                </select>
+                <br />
+                <input type="checkbox" name="cb1" id="cb1" ng-model="job.Interested" />
+                <label for="cb1">Interested in New Jobs</label>
+                <br />
+                <br />
+                <input type="submit" name="s1" ng-disabled="frmjobs.$invalid" class="btn btn-success" value="Submit New Job" />
+
+
+                <div ng-show="showSuccessMessage">
+                    Thank you for taking the time to register!
+                </div>
+                <div class="error" ng-show="showErrorMessage">
+                    There appears to have been a problem with your registration.<br />
+                </div>
+
+            </form>
+    </div>
+
