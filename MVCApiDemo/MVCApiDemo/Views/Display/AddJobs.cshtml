@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "AddJob";
+}
+
+<h2>Add Job</h2>
+Job id @Html.TextBox("t1")
+<br />
+Job desc @Html.TextBox("t2")
+<br />
+
+Min @Html.TextBox("t3")
+<br />
+
+Max @Html.TextBox("t4")
+<br />
+
+<input type="button" id="b1" value="Add Job" />
+
+
+@section Scripts {
+    <script>
+        $("#b1").click(function () {
+            var jobrec =
+                {
+                "job_id": $("#t1").val(),
+                "job_desc": $("#t2").val(),
+                "min_lvl": $("#t3").val(),
+                "max_lvl": $("#t4").val()
+            };
+            var x = JSON.stringify(jobrec);
+            $.ajax({
+                url: '/api/jobsapi',
+                cache: false,
+                type: 'Post',
+                contentType: 'application/json; charset=utf-8',
+                data: x,
+                dataType: "json",
+                success: function (data) {
+                    alert("Added record successfully...!");
+                }
+            }).fail(function () {
+                alert("Failed");
+            });
+        });
+    </script>
+}

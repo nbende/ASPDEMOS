@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>List of Jobs</h2>
+<ul id="jobsdata" style="font-family:Tahoma;background-color:azure;font-size:large" />
+
+<div>
+    <h3>Search by ID</h3>
+    <input type="text" id="jobid" size="5" />
+    <input type="button" value="Search" onclick="find();" />
+    <p id="job" style="background-color:cyan;font-family:'Arial Rounded MT';font-size:large" />
+</div>
+
+
+
+@section scripts {
+    <script>
+        var apiUrl = '/api/JobsApi';
+        $(document).ready(function () {
+            // Send an AJAX request
+            
+            $.getJSON(apiUrl)
+                .done(function (data) {
+                    $.each(data, function (key, item) {
+                        // Add a list item for the product.
+                        $('<li>', { text: formatItem(item) }).appendTo($('#jobsdata'));
+                    });
+                });
+        });
+
+        function formatItem(item) {
+            return item.job_desc + ' : ' + item.min_lvl + ' : ' + item.max_lvl;
+        }
+
+        function find() {
+            var id = $('#jobid').val();
+            $.getJSON(apiUrl + '/' + id) // 
+                .done(function (data) {
+                    $('#job').text(formatItem(data));
+                })
+                .fail(function (jqXHR, textStatus, err) {
+                    $('#job').text('Error: ' + err);
+                });
+        }
+    </script>
+}
