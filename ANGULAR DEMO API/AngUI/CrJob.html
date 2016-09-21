@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/APP1.js"></script>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>Create new Job Here</h1>
+    <div ng-app="ApiMod" ng-controller="AddJobsController" class="container">
+        <form name="frm" id="frm" ng-submit="Job.AddJobdata()">
+            <input type="text" name="t1" placeholder="JobId"       ng-model="Job.job_id"   class="form-control" />
+            <input type="text" name="t2" placeholder="Description" ng-model="Job.job_desc" class="form-control" />
+            <input type="text" name="t3" placeholder="Min Level"   ng-model="Job.min_lvl"  class="form-control" />
+            <select id="s1" ng-model="Job.max_lvl" class="form-control"
+                    ng-options="obj.Val as obj.Name for obj in Job.ddmax">
+                <option>Select Max Level</option>
+            </select>
+            <input type="checkbox" name="chk1" ng-model="Job.Interested" class="form-control" value="Interested"/>
+            <input type="submit" name="s1" class="btn btn-success" value="Add Job" />
+        </form>
+        <pre>{{Job | json}}</pre>
+    </div>
+</body>
+</html>

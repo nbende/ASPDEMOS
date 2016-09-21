@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/APP1.js"></script>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body ng-app="ApiMod">
+    <h1>Jobs Data</h1>
+    <div id="d1" ng-controller="JobsController">
+        <table class="table table-striped table-hover">
+            <tr ng-repeat="J in JData">
+                <td>{{J.job_id}}</td>
+                <td>{{J.job_desc}}</td>
+                <td>{{J.min_lvl}}</td>
+                <td>{{J.max_lvl}}</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
